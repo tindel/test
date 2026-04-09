@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Corpay Investor Relations — V5</title>
+<title>Corpay Stablecoin Payments — The Next Era of Money Movement</title>
 <style>
 @font-face {
   font-family: 'GT America';
@@ -74,7 +74,6 @@
     --hairline:      rgba(245, 237, 224, 0.12);
     --hairline-2:    rgba(245, 237, 224, 0.06);
 
-    /* Light section palette */
     --paper:         #faf7f0;
     --paper-2:       #f3eee2;
     --paper-3:       #ebe4d2;
@@ -105,7 +104,6 @@
     overflow-x: hidden;
   }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -117,7 +115,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ---------- Locked Gradient Recipe (used across all dark bands) ---------- */
+  /* Locked gradient recipe — same as IR site */
   .gradient-band {
     position: absolute;
     inset: 0;
@@ -134,8 +132,6 @@
       radial-gradient(ellipse 45% 55% at 60% 60%, rgba(61, 26, 61, 0.4), transparent 70%),
       var(--ink);
   }
-
-  /* Topographic line texture */
   .topo {
     position: absolute;
     inset: 0;
@@ -210,28 +206,26 @@
   }
 
   /* ============================================================
-     HERO — adopting Tindel's compositional structure
+     HERO
      ============================================================ */
   .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    padding: 9rem 2.5rem 0;
+    align-items: center;
+    padding: 9rem 2.5rem 5rem;
     overflow: hidden;
   }
-  .hero__top {
-    flex: 1;
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: center;
+  .hero__inner {
     position: relative;
     z-index: 2;
-    padding-bottom: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 6rem;
+    align-items: center;
   }
   .hero__eyebrow {
     font-family: var(--font-mono);
@@ -253,8 +247,8 @@
   }
   .hero__title {
     font-family: var(--font-display);
-    font-size: clamp(56px, 7.5vw, 116px);
-    line-height: 0.95;
+    font-size: clamp(56px, 7vw, 116px);
+    line-height: 0.94;
     font-weight: 300;
     letter-spacing: -0.035em;
     color: var(--bone);
@@ -269,162 +263,148 @@
     -webkit-text-fill-color: transparent;
   }
   .hero__lede {
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.55;
     color: var(--bone-mute);
     max-width: 56ch;
+    margin-bottom: 2.5rem;
   }
-
-  /* Stock Card — pulled-out object on right */
-  .stock-card {
-    background: rgba(18, 10, 30, 0.55);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r);
-    padding: 2rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  .stock-card__head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
-  }
-  .stock-card__symbol {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--bone-mute);
-  }
-  .stock-card__live {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .stock-card__live::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    animation: livepulse 2s ease-in-out infinite;
-  }
-  @keyframes livepulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
-  }
-  .stock-card__price {
+  .hero__pull {
     font-family: var(--font-display);
-    font-size: 64px;
+    font-size: 17px;
+    font-style: italic;
     font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    line-height: 1.5;
     color: var(--bone);
-    margin-bottom: 0.6rem;
-  }
-  .stock-card__change {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 500;
-    color: #7dd3a0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .stock-card__change::before {
-    content: '▲';
-    font-size: 9px;
-  }
-  .stock-card__spark {
-    width: 100%;
-    height: 64px;
-    margin-bottom: 1.25rem;
-  }
-  .stock-card__meta {
-    border-top: 1px solid var(--hairline);
-    padding-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--bone-faint);
+    max-width: 50ch;
+    padding: 1.25rem 0 1.25rem 1.5rem;
+    border-left: 1px solid var(--gold);
   }
 
-  /* Hero stat strip — INSIDE the dark band, edge to edge, no outer container */
-  .hero__stats {
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    padding: 2.5rem 0;
+  /* Hero illustration — large stablecoin mark */
+  .hero__mark {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__mark-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(232, 185, 107, 0.18), transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(196, 30, 90, 0.22), transparent 75%);
+  }
+  .hero__mark-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(0deg, rgba(245, 237, 224, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 237, 224, 0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 75%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black, transparent 75%);
+  }
+  .hero__mark-rings {
+    position: absolute;
+    inset: 0;
+  }
+  .hero__mark-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 185, 107, 0.25);
+    transform: translate(-50%, -50%);
+  }
+  .hero__mark-ring--1 { width: 35%; height: 35%; }
+  .hero__mark-ring--2 { width: 55%; height: 55%; border-color: rgba(232, 185, 107, 0.18); }
+  .hero__mark-ring--3 { width: 75%; height: 75%; border-color: rgba(232, 185, 107, 0.12); }
+  .hero__mark-ring--4 { width: 95%; height: 95%; border-color: rgba(232, 185, 107, 0.06); }
+  .hero__mark-symbol {
     position: relative;
     z-index: 2;
+    font-family: var(--font-display);
+    font-size: clamp(140px, 18vw, 280px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--peach) 45%, var(--wine-bright) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
   }
-  .hero__stats-inner {
+
+  /* ============================================================
+     PROOF BAND — three claim numbers
+     ============================================================ */
+  .proof {
+    position: relative;
+    padding: 4rem 2.5rem;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--ink-2);
+  }
+  .proof__inner {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  .hstat {
-    padding: 0 1.75rem;
+  .proof__item {
+    padding: 0 3rem;
+    text-align: center;
     position: relative;
   }
-  .hstat:first-child { padding-left: 0; }
-  .hstat:last-child { padding-right: 0; }
-  .hstat + .hstat::before {
+  .proof__item:first-child { padding-left: 0; text-align: left; }
+  .proof__item:last-child { padding-right: 0; text-align: right; }
+  .proof__item + .proof__item::before {
     content: '';
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 48px;
+    height: 80px;
     background: var(--hairline-2);
   }
-  .hstat__label {
+  .proof__label {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--bone-faint);
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
   }
-  .hstat__value {
+  .proof__value {
     font-family: var(--font-display);
-    font-size: 38px;
+    font-size: clamp(48px, 5.5vw, 84px);
     font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
     color: var(--bone);
+    margin-bottom: 0.75rem;
   }
-  .hstat__value sup {
-    font-size: 0.5em;
+  .proof__value em {
+    font-style: italic;
+    font-weight: 300;
     color: var(--gold);
-    vertical-align: top;
-    margin-left: 0.1em;
-    font-weight: 400;
   }
-  .hstat__sub {
-    font-size: 10px;
+  .proof__sub {
+    font-size: 13px;
     color: var(--bone-mute);
-    margin-top: 0.4rem;
+    line-height: 1.5;
+    max-width: 30ch;
   }
-  .hstat__sub--up { color: #7dd3a0; }
+  .proof__item:first-child .proof__sub { margin-left: 0; }
+  .proof__item:nth-child(2) .proof__sub { margin: 0 auto; }
+  .proof__item:last-child .proof__sub { margin-left: auto; }
 
   /* ============================================================
-     LIGHT BANDS — editorial, no stock photos, no generic cards
+     LIGHT SECTION BASE
      ============================================================ */
   .light {
     background: var(--paper);
@@ -441,12 +421,14 @@
     mix-blend-mode: multiply;
   }
 
-  /* Section heads */
+  /* ============================================================
+     SECTION HEADS
+     ============================================================ */
   .section-head {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     align-items: end;
     position: relative;
   }
@@ -456,7 +438,6 @@
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--wine-bright);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -466,788 +447,527 @@
     content: '';
     width: 24px;
     height: 1px;
-    background: var(--wine-bright);
   }
   .light .section-eyebrow {
     color: var(--wine-bright);
   }
-  .light .section-eyebrow::before {
-    background: var(--wine-bright);
-  }
+  .light .section-eyebrow::before { background: var(--wine-bright); }
   .dark .section-eyebrow {
     color: var(--gold);
   }
-  .dark .section-eyebrow::before {
-    background: var(--gold);
-  }
+  .dark .section-eyebrow::before { background: var(--gold); }
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(40px, 4.5vw, 72px);
+    font-size: clamp(40px, 4.5vw, 68px);
     font-weight: 300;
     line-height: 0.98;
     letter-spacing: -0.03em;
-    color: var(--ink-text);
   }
   .light .section-title { color: var(--ink-text); }
   .dark .section-title { color: var(--bone); }
   .section-title em {
     font-style: italic;
     font-weight: 300;
-    color: var(--wine-bright);
   }
-  .dark .section-title em {
-    color: var(--gold);
-  }
+  .light .section-title em { color: var(--wine-bright); }
+  .dark .section-title em { color: var(--gold); }
   .section-head__copy {
     font-size: 16px;
-    line-height: 1.6;
-    max-width: 50ch;
+    line-height: 1.65;
+    max-width: 52ch;
   }
   .light .section-head__copy { color: var(--ink-mute); }
   .dark .section-head__copy { color: var(--bone-mute); }
 
   /* ============================================================
-     SPOTLIGHT — three tiles, light theme
+     PLAIN ENGLISH (light, editorial)
      ============================================================ */
-  .spotlight {
-    padding: 8rem 2.5rem 7rem;
+  .explain {
+    padding: 9rem 2.5rem 8rem;
   }
-  .spotlight__inner {
+  .explain__inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
   }
-  .spot-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 1.5rem;
-  }
-  .spot-tile {
-    border-radius: var(--r);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s ease;
-    position: relative;
-    cursor: pointer;
-  }
-  .spot-tile:hover { transform: translateY(-4px); }
-
-  /* Stablecoin — featured, gradient hero, larger */
-  .spot-tile--stablecoin {
-    background: linear-gradient(155deg, var(--ink) 0%, var(--plum-deep) 60%, var(--wine) 100%);
-    color: var(--bone);
-    grid-row: span 1;
-  }
-  .spot-tile--stablecoin .spot-tile__media {
-    aspect-ratio: 16 / 9;
-    position: relative;
-    overflow: hidden;
-  }
-  .spot-tile--stablecoin .spot-tile__media::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 30% 30%, rgba(232, 185, 107, 0.25), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 70% 70%, rgba(196, 30, 90, 0.3), transparent 70%);
-  }
-  .spot-tile--stablecoin .spot-tile__media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(0deg, rgba(245, 237, 224, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(245, 237, 224, 0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent 75%);
-  }
-  .spot-tile__mark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    display: flex;
-    align-items: center;
-  }
-  .spot-tile__mark-dollar {
-    font-family: var(--font-display);
-    font-size: 110px;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--peach) 60%, var(--wine-bright) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.04em;
-  }
-  .spot-tile__mark-rings {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-left: 16px;
-  }
-  .spot-tile__mark-rings span {
-    height: 7px;
-    border-radius: 4px;
-    background: rgba(245, 237, 224, 0.7);
-  }
-  .spot-tile__mark-rings span:nth-child(1) { width: 42px; }
-  .spot-tile__mark-rings span:nth-child(2) { width: 32px; background: rgba(245, 237, 224, 0.4); }
-  .spot-tile__mark-rings span:nth-child(3) { width: 22px; background: rgba(245, 237, 224, 0.2); }
-  .spot-tile--stablecoin .spot-tile__body {
-    padding: 2.25rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .spot-tile__tag {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .spot-tile__title {
-    font-family: var(--font-display);
-    font-size: 30px;
-    line-height: 1.05;
-    font-weight: 400;
-    letter-spacing: -0.025em;
-    margin-bottom: 1rem;
-    color: var(--bone);
-  }
-  .spot-tile__title em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--gold);
-  }
-  .spot-tile__desc {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--bone-mute);
-    margin-bottom: 1.5rem;
-    flex: 1;
-  }
-  .spot-tile__features {
-    list-style: none;
-    margin: 0 0 1.75rem;
-    padding: 0;
-  }
-  .spot-tile__features li {
-    font-size: 12px;
-    color: var(--bone-mute);
-    padding: 0.55rem 0;
-    border-bottom: 1px solid var(--hairline-2);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .spot-tile__features li:last-child { border-bottom: none; }
-  .spot-tile__features li::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-  .spot-tile__cta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--hairline);
-    cursor: pointer;
-  }
-  .spot-tile__cta span { transition: transform 0.3s ease; }
-  .spot-tile:hover .spot-tile__cta span { transform: translateX(4px); }
-
-  /* Video tile — light treatment */
-  .spot-tile--video {
-    background: var(--paper-2);
-    color: var(--ink-text);
-    border: 1px solid var(--hairline-dark);
-  }
-  .spot-tile--video .spot-tile__media {
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--plum-deep) 0%, var(--ink-3) 60%, var(--ink) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .spot-tile--video .spot-tile__media::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(232, 185, 107, 0.18), transparent 70%),
-      radial-gradient(ellipse 80% 60% at 50% 60%, rgba(196, 30, 90, 0.28), transparent 70%);
-  }
-  .spot-tile--video .spot-tile__media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 18px,
-      rgba(245, 237, 224, 0.05) 18px,
-      rgba(245, 237, 224, 0.05) 19px
-    );
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black, transparent 80%);
-  }
-  .spot-tile__play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.4s ease;
-  }
-  .spot-tile--video:hover .spot-tile__play {
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-  .spot-tile__duration {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--bone);
-    background: rgba(10, 6, 18, 0.7);
-    padding: 0.35rem 0.6rem;
-    border-radius: var(--r-sm);
-    backdrop-filter: blur(4px);
-    z-index: 2;
-  }
-  .spot-tile--video .spot-tile__body {
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .spot-tile--video .spot-tile__tag {
-    color: var(--wine-bright);
-  }
-  .spot-tile--video .spot-tile__title {
-    color: var(--ink-text);
-    font-size: 24px;
-  }
-  .spot-tile--video .spot-tile__title em {
-    color: var(--wine-bright);
-  }
-  .spot-tile--video .spot-tile__desc {
-    color: var(--ink-mute);
-  }
-  .spot-tile--video .spot-tile__cta {
-    color: var(--ink-text);
-    border-top-color: var(--hairline-dark);
-  }
-
-  /* Teach-In tile */
-  .spot-tile--event {
-    background: var(--paper-2);
-    color: var(--ink-text);
-    border: 1px solid var(--hairline-dark);
-  }
-  .spot-tile--event .spot-tile__media {
-    aspect-ratio: 16 / 9;
-    background:
-      radial-gradient(ellipse 70% 60% at 80% 0%, rgba(232, 185, 107, 0.2), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 0% 100%, rgba(196, 30, 90, 0.25), transparent 70%),
-      linear-gradient(135deg, var(--plum-deep), var(--ink-3));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .spot-tile__date-block {
-    border: 1px solid var(--gold);
-    border-radius: var(--r);
-    padding: 1.25rem 1.75rem;
-    text-align: center;
-    background: rgba(232, 185, 107, 0.08);
-    min-width: 130px;
-    backdrop-filter: blur(4px);
-    z-index: 2;
-  }
-  .spot-tile__date-month {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
-  }
-  .spot-tile__date-day {
-    font-family: var(--font-display);
-    font-size: 56px;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: var(--bone);
-  }
-  .spot-tile__date-year {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    color: var(--bone-mute);
-    margin-top: 0.5rem;
-  }
-  .spot-tile--event .spot-tile__body {
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .spot-tile--event .spot-tile__tag {
-    color: var(--wine-bright);
-  }
-  .spot-tile--event .spot-tile__title {
-    color: var(--ink-text);
-    font-size: 24px;
-  }
-  .spot-tile--event .spot-tile__title em {
-    color: var(--wine-bright);
-  }
-  .spot-tile--event .spot-tile__desc {
-    color: var(--ink-mute);
-  }
-  .spot-tile__series {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 0.75rem;
-  }
-  .spot-tile__details {
+  .explain__body {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem 1rem;
-    margin: 1rem 0 1.5rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--hairline-dark);
-    border-bottom: 1px solid var(--hairline-dark);
+    gap: 5rem;
+    align-items: start;
   }
-  .spot-tile__detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .spot-tile__detail-label {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-  .spot-tile__detail-value {
-    font-size: 12px;
+  .explain__lead {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: -0.015em;
     color: var(--ink-text);
-    line-height: 1.3;
   }
-  .spot-tile--event .spot-tile__cta {
+  .explain__lead em {
+    font-style: italic;
     color: var(--wine-bright);
-    border-top-color: var(--hairline-dark);
+  }
+  .explain__detail {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-mute);
+  }
+  .explain__detail p { margin-bottom: 1.25rem; }
+  .explain__detail p:last-child { margin-bottom: 0; }
+  .explain__detail strong {
+    color: var(--ink-text);
+    font-weight: 500;
   }
 
   /* ============================================================
-     LATEST NEWS — light, editorial, NO uniform cards
+     WHY IT MATTERS — 4-up grid
      ============================================================ */
-  .latest {
-    padding: 7rem 2.5rem 8rem;
+  .why {
+    padding: 9rem 2.5rem;
     border-top: 1px solid var(--hairline-dark);
   }
-  .latest__inner {
+  .why__inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
   }
-  .latest__list {
-    display: flex;
-    flex-direction: column;
-  }
-  .news-row {
+  .why__grid {
     display: grid;
-    grid-template-columns: 140px 1fr auto;
-    gap: 3rem;
-    align-items: center;
-    padding: 2.25rem 0;
-    border-bottom: 1px solid var(--hairline-dark);
-    cursor: pointer;
-    transition: padding 0.3s ease;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-  .news-row:first-child {
-    border-top: 1px solid var(--hairline-dark);
+  .why-card {
+    background: var(--paper-2);
+    border: 1px solid var(--hairline-dark);
+    border-radius: var(--r);
+    padding: 3rem;
+    transition: all 0.4s ease;
+    cursor: default;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: start;
   }
-  .news-row:hover {
-    padding-left: 1rem;
+  .why-card:hover {
+    background: var(--paper-3);
+    border-color: var(--ink-text);
   }
-  .news-row__date {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-  .news-row__main {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .news-row__tag {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .why-card__num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
     color: var(--wine-bright);
+    min-width: 80px;
   }
-  .news-row__title {
+  .why-card__body {
+    padding-top: 0.5rem;
+  }
+  .why-card__title {
     font-family: var(--font-display);
     font-size: 26px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--ink-text);
+    margin-bottom: 0.75rem;
   }
-  .news-row--feature .news-row__title {
-    font-size: 36px;
-    font-weight: 300;
-  }
-  .news-row__arrow {
-    font-family: var(--font-mono);
-    font-size: 22px;
-    color: var(--ink-faint);
-    transition: all 0.3s ease;
-  }
-  .news-row:hover .news-row__arrow {
-    color: var(--wine-bright);
-    transform: translateX(6px);
-  }
-  .latest__viewall {
-    margin-top: 3rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-text);
-    border: 1px solid var(--ink-text);
-    padding: 1rem 1.5rem;
-    border-radius: var(--r);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .latest__viewall:hover {
-    background: var(--ink-text);
-    color: var(--paper);
+  .why-card__desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-mute);
   }
 
   /* ============================================================
-     PERFORMANCE — DARK band returns
+     GENIUS ACT / TRUST BAND — DARK
      ============================================================ */
-  .perf {
-    padding: 9rem 2.5rem;
+  .trust {
+    padding: 10rem 2.5rem;
     position: relative;
     overflow: hidden;
   }
-  .perf__inner {
+  .trust__inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
   }
-  .perf__grid {
+  .trust__grid {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 5rem;
     align-items: center;
     margin-top: 2rem;
   }
-  .perf__chart-wrap {
+  .trust__seal {
     background: rgba(18, 10, 30, 0.5);
-    border: 1px solid var(--hairline);
+    border: 1px solid var(--gold);
     border-radius: var(--r);
-    padding: 2rem;
+    padding: 3rem;
     backdrop-filter: blur(8px);
+    text-align: center;
   }
-  .perf__chart {
-    width: 100%;
-    height: 380px;
-  }
-  .perf__numbers {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-  .perf__num {
-    border-left: 1px solid var(--gold);
-    padding-left: 1.5rem;
-  }
-  .perf__num-label {
+  .trust__seal-eyebrow {
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--bone-faint);
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .trust__seal-title {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--bone);
     margin-bottom: 0.5rem;
   }
-  .perf__num-value {
-    font-family: var(--font-display);
-    font-size: 56px;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.025em;
-    color: var(--bone);
-  }
-  .perf__num-value em {
+  .trust__seal-title em {
     font-style: italic;
     font-weight: 300;
     color: var(--gold);
   }
-  .perf__num-desc {
-    font-size: 13px;
-    color: var(--bone-mute);
-    margin-top: 0.5rem;
-    max-width: 32ch;
-  }
-
-  /* ============================================================
-     ABOUT — light, restrained
-     ============================================================ */
-  .about {
-    padding: 7rem 2.5rem;
-    border-top: 1px solid var(--hairline-dark);
-  }
-  .about__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 5rem;
-    align-items: start;
-    position: relative;
-  }
-  .about__label {
+  .trust__seal-subtitle {
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--wine-bright);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    color: var(--bone-mute);
+    margin-bottom: 2rem;
   }
-  .about__label::before {
-    content: '';
-    width: 24px;
+  .trust__seal-divider {
+    width: 40px;
     height: 1px;
-    background: var(--wine-bright);
+    background: var(--gold);
+    margin: 0 auto 2rem;
   }
-  .about__heading {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3vw, 42px);
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    color: var(--ink-text);
-    margin-top: 1.5rem;
-  }
-  .about__heading em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--wine-bright);
-  }
-  .about__body {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 300;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    color: var(--ink-text);
-    max-width: 60ch;
-  }
-  .about__body strong {
-    font-weight: 500;
-  }
-  .about__meta {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--hairline-dark);
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 3rem;
-  }
-  .about__meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .about__meta-label {
+  .trust__seal-date {
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    color: var(--bone-faint);
   }
-  .about__meta-value {
+  .trust__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .trust__list li {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .trust__list li:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .trust__list-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    padding-top: 0.25rem;
+  }
+  .trust__list-text {
     font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--ink-text);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--bone);
+  }
+  .trust__list-text strong {
+    font-weight: 500;
   }
 
   /* ============================================================
-     RESOURCES — bigger, fewer, more confident
+     WHERE IT DELIVERS — light, two columns compared
      ============================================================ */
-  .resources {
-    padding: 7rem 2.5rem 9rem;
-    border-top: 1px solid var(--hairline-dark);
+  .value {
+    padding: 9rem 2.5rem;
   }
-  .resources__inner {
+  .value__inner {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
   }
-  .resources__grid {
+  .value__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
-  .resource {
+  .value-col {
     border: 1px solid var(--hairline-dark);
     border-radius: var(--r);
     padding: 3rem;
-    transition: all 0.4s ease;
-    cursor: pointer;
     background: var(--paper-2);
     position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-    align-items: center;
   }
-  .resource:hover {
-    border-color: var(--ink-text);
-    background: var(--paper-3);
+  .value-col--featured {
+    background: linear-gradient(155deg, var(--ink-text) 0%, var(--plum-deep) 100%);
+    color: var(--bone);
+    border-color: transparent;
   }
-  .resource__icon {
-    width: 56px;
-    height: 56px;
-    color: var(--wine-bright);
-    flex-shrink: 0;
+  .value-col__tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid currentColor;
+    border-radius: var(--r-sm);
   }
-  .resource__main {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .value-col .value-col__tag { color: var(--ink-faint); }
+  .value-col--featured .value-col__tag {
+    color: var(--gold);
+    background: rgba(232, 185, 107, 0.1);
   }
-  .resource__title {
+  .value-col__title {
     font-family: var(--font-display);
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 400;
     line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 1rem 0 1.5rem;
+  }
+  .value-col .value-col__title { color: var(--ink-text); }
+  .value-col--featured .value-col__title { color: var(--bone); }
+  .value-col__title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .value-col .value-col__title em { color: var(--wine-bright); }
+  .value-col--featured .value-col__title em { color: var(--gold); }
+  .value-col__desc {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+  .value-col .value-col__desc { color: var(--ink-mute); }
+  .value-col--featured .value-col__desc { color: var(--bone-mute); }
+  .value-col__list {
+    list-style: none;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid;
+    margin: 0;
+  }
+  .value-col .value-col__list { border-top-color: var(--hairline-dark); }
+  .value-col--featured .value-col__list { border-top-color: var(--hairline); }
+  .value-col__list li {
+    padding: 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .value-col .value-col__list li { color: var(--ink-text); }
+  .value-col--featured .value-col__list li { color: var(--bone); }
+  .value-col__list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .value-col .value-col__list li::before { background: var(--wine-bright); }
+  .value-col--featured .value-col__list li::before { background: var(--gold); }
+
+  /* ============================================================
+     HOW IT WORKS — light, ordered process
+     ============================================================ */
+  .how {
+    padding: 9rem 2.5rem;
+    border-top: 1px solid var(--hairline-dark);
+  }
+  .how__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .how__list {
+    display: flex;
+    flex-direction: column;
+  }
+  .how-step {
+    display: grid;
+    grid-template-columns: 100px 1fr 2fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--hairline-dark);
+    align-items: start;
+  }
+  .how-step:first-child { border-top: 1px solid var(--hairline-dark); }
+  .how-step__num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    color: var(--wine-bright);
+  }
+  .how-step__title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--ink-text);
+    padding-top: 0.75rem;
   }
-  .resource__desc {
-    font-size: 13px;
+  .how-step__desc {
+    font-size: 15px;
+    line-height: 1.65;
     color: var(--ink-mute);
-    line-height: 1.5;
-    max-width: 42ch;
-  }
-  .resource__arrow {
-    font-family: var(--font-mono);
-    font-size: 22px;
-    color: var(--ink-faint);
-    transition: all 0.3s ease;
-  }
-  .resource:hover .resource__arrow {
-    color: var(--wine-bright);
-    transform: translateX(6px);
+    padding-top: 0.85rem;
   }
 
   /* ============================================================
-     QUOTE — DARK band
+     WHAT THIS ISN'T — short dark band, the disclaimer-as-feature
      ============================================================ */
-  .quote {
-    padding: 11rem 2.5rem;
-    text-align: center;
+  .isnt {
+    padding: 7rem 2.5rem;
     position: relative;
     overflow: hidden;
   }
-  .quote__inner {
+  .isnt__inner {
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    text-align: center;
   }
-  .quote__mark {
-    font-family: var(--font-display);
-    font-size: 140px;
-    line-height: 0.5;
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-  .quote__text {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.4vw, 52px);
-    font-weight: 300;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    color: var(--bone);
-    margin-bottom: 3rem;
-  }
-  .quote__text em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--gold);
-  }
-  .quote__author {
+  .isnt__eyebrow {
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--bone-mute);
+    color: var(--gold);
+    margin-bottom: 2rem;
   }
-  .quote__author strong {
+  .isnt__title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
     color: var(--bone);
+    margin-bottom: 2rem;
+  }
+  .isnt__title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+  }
+  .isnt__body {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--bone-mute);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+  .isnt__body strong {
+    color: var(--bone);
+    font-weight: 400;
+  }
+
+  /* ============================================================
+     CTA — final
+     ============================================================ */
+  .cta {
+    padding: 10rem 2.5rem;
+    text-align: center;
+  }
+  .cta__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .cta__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
     font-weight: 500;
-    display: block;
-    margin-bottom: 0.3rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wine-bright);
+    margin-bottom: 1.5rem;
+  }
+  .cta__title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink-text);
+    margin-bottom: 1.5rem;
+  }
+  .cta__title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--wine-bright);
+  }
+  .cta__desc {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-mute);
+    max-width: 50ch;
+    margin: 0 auto 3rem;
+  }
+  .cta__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta__btn {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1.1rem 1.75rem;
+    border-radius: var(--r);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .cta__btn--primary {
+    background: var(--ink-text);
+    color: var(--paper);
+    border: 1px solid var(--ink-text);
+  }
+  .cta__btn--primary:hover {
+    background: var(--wine-bright);
+    border-color: var(--wine-bright);
+  }
+  .cta__btn--secondary {
+    background: transparent;
+    color: var(--ink-text);
+    border: 1px solid var(--ink-text);
+  }
+  .cta__btn--secondary:hover {
+    background: var(--ink-text);
+    color: var(--paper);
   }
 
   /* ---------- Footer ---------- */
@@ -1262,7 +982,7 @@
   }
   .footer__grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 3rem;
     margin-bottom: 4rem;
   }
@@ -1322,25 +1042,27 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 1100px) {
-    .spot-grid { grid-template-columns: 1fr; }
-    .resources__grid { grid-template-columns: 1fr; }
-    .news-row { grid-template-columns: 100px 1fr auto; gap: 1.5rem; }
-  }
-  @media (max-width: 1024px) {
-    .hero__top { grid-template-columns: 1fr; gap: 3rem; padding-bottom: 3rem; }
-    .hero__stats-inner { grid-template-columns: repeat(3, 1fr); gap: 2rem 0; }
-    .hstat:nth-child(4)::before, .hstat:nth-child(n+4) { padding-left: 1.75rem; }
-    .perf__grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about__inner { grid-template-columns: 1fr; gap: 2rem; }
-    .about__meta { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .hero__inner { grid-template-columns: 1fr; gap: 4rem; }
+    .hero__mark { max-width: 460px; margin: 0 auto; }
+    .why__grid { grid-template-columns: 1fr; }
+    .value__grid { grid-template-columns: 1fr; }
+    .trust__grid { grid-template-columns: 1fr; gap: 3rem; }
+    .explain__body { grid-template-columns: 1fr; gap: 2.5rem; }
+    .how-step { grid-template-columns: 70px 1fr; gap: 1.5rem; }
+    .how-step__desc { grid-column: 2; padding-top: 0; }
+    .proof__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .proof__item { padding: 1.5rem 0; text-align: left; }
+    .proof__item:first-child, .proof__item:last-child { padding: 1.5rem 0; text-align: left; }
+    .proof__item:nth-child(2) .proof__sub { margin: 0; }
+    .proof__item:last-child .proof__sub { margin-left: 0; }
+    .proof__item + .proof__item::before {
+      left: 0; right: 0; top: 0; bottom: auto;
+      width: 100%; height: 1px;
+      transform: none;
+    }
     .footer__grid { grid-template-columns: 1fr 1fr; }
     .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
     .nav__links { display: none; }
-    .news-row__title { font-size: 20px; }
-    .news-row--feature .news-row__title { font-size: 26px; }
-    .resource { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
-    .resource__icon { width: 40px; height: 40px; }
-    .resource__title { font-size: 24px; }
   }
 </style>
 </head>
@@ -1348,15 +1070,14 @@
 
 <!-- ============ NAV ============ -->
 <nav class="nav">
-  <div class="nav__brand">corpay<em>/ir</em></div>
+  <div class="nav__brand">corpay<em>/stablecoin</em></div>
   <ul class="nav__links">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#financials">Financials</a></li>
-    <li><a href="#news">News &amp; Events</a></li>
-    <li><a href="#stock">Stock</a></li>
-    <li><a href="#governance">Governance</a></li>
+    <li><a href="#what">What it is</a></li>
+    <li><a href="#why">Why it matters</a></li>
+    <li><a href="#trust">GENIUS Act</a></li>
+    <li><a href="#use">How it works</a></li>
   </ul>
-  <button class="nav__cta">Email Alerts</button>
+  <button class="nav__cta">Talk to us</button>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -1364,450 +1085,369 @@
   <div class="gradient-band"></div>
   <div class="topo"></div>
 
-  <div class="hero__top">
+  <div class="hero__inner">
     <div>
-      <div class="hero__eyebrow">Investor Relations / 2026</div>
+      <div class="hero__eyebrow">Corpay Stablecoin Payments</div>
       <h1 class="hero__title">
-        The next era<br>
-        of <em>money movement.</em>
+        Move money<br>
+        faster.<br>
+        <em>With confidence.</em>
       </h1>
       <p class="hero__lede">
-        Corpay is integrating stablecoin technology into its global platform —
-        delivering faster settlement, 24/7 availability, and a modern rail
-        built for cross-border commerce.
+        Modern business doesn't wait for banking windows, correspondent banks,
+        or lengthy settlement cycles. Corpay now offers stablecoin payments —
+        a new way to transfer value globally with speed, predictability, and clarity.
+      </p>
+      <p class="hero__pull">
+        This isn't speculation. It's a practical evolution in payments
+        infrastructure designed for real business use.
       </p>
     </div>
 
-    <div class="stock-card">
-      <div class="stock-card__head">
-        <span class="stock-card__symbol">NYSE : CPAY</span>
-        <span class="stock-card__live">Live</span>
+    <div class="hero__mark">
+      <div class="hero__mark-bg"></div>
+      <div class="hero__mark-grid"></div>
+      <div class="hero__mark-rings">
+        <div class="hero__mark-ring hero__mark-ring--4"></div>
+        <div class="hero__mark-ring hero__mark-ring--3"></div>
+        <div class="hero__mark-ring hero__mark-ring--2"></div>
+        <div class="hero__mark-ring hero__mark-ring--1"></div>
       </div>
-      <div class="stock-card__price">$342.18</div>
-      <div class="stock-card__change">+4.27 (1.26%)</div>
-      <svg class="stock-card__spark" viewBox="0 0 300 64" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="sparkGrad" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#e8b96b" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#e8b96b" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,48 L20,44 L40,50 L60,40 L80,42 L100,32 L120,36 L140,28 L160,30 L180,20 L200,24 L220,16 L240,18 L260,10 L280,14 L300,6 L300,64 L0,64 Z" fill="url(#sparkGrad)"/>
-        <path d="M0,48 L20,44 L40,50 L60,40 L80,42 L100,32 L120,36 L140,28 L160,30 L180,20 L200,24 L220,16 L240,18 L260,10 L280,14 L300,6" fill="none" stroke="#e8b96b" stroke-width="1.5"/>
-      </svg>
-      <div class="stock-card__meta">
-        <span>Last Close · Feb 6</span>
-        <span>Delayed 15 min</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Stat strip INSIDE the hero band -->
-  <div class="hero__stats">
-    <div class="hero__stats-inner">
-      <div class="hstat">
-        <div class="hstat__label">FY25 Revenue</div>
-        <div class="hstat__value">$4.5<sup>B</sup></div>
-        <div class="hstat__sub hstat__sub--up">+14% YoY</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat__label">Adj. EPS</div>
-        <div class="hstat__value">$21.38</div>
-        <div class="hstat__sub hstat__sub--up">+12% YoY</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat__label">Organic Growth</div>
-        <div class="hstat__value">10<sup>%</sup></div>
-        <div class="hstat__sub">Full year 2025</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat__label">Countries</div>
-        <div class="hstat__value">150<sup>+</sup></div>
-        <div class="hstat__sub">Global footprint</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat__label">Business Clients</div>
-        <div class="hstat__value">800<sup>K+</sup></div>
-        <div class="hstat__sub">Across segments</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat__label">Networks</div>
-        <div class="hstat__value">30<sup>+</sup></div>
-        <div class="hstat__sub">Worldwide</div>
-      </div>
+      <div class="hero__mark-symbol">$</div>
     </div>
   </div>
 </section>
 
-<!-- ============ SPOTLIGHT — light ============ -->
-<section class="spotlight light">
-  <div class="spotlight__inner">
+<!-- ============ PROOF BAND ============ -->
+<section class="proof dark">
+  <div class="proof__inner">
+    <div class="proof__item">
+      <div class="proof__label">Settlement Speed</div>
+      <div class="proof__value">Near<br><em>instant.</em></div>
+      <div class="proof__sub">Versus days through traditional correspondent banking.</div>
+    </div>
+    <div class="proof__item">
+      <div class="proof__label">Availability</div>
+      <div class="proof__value">24<em>/</em>7</div>
+      <div class="proof__sub">No banking hours. No delayed corridors. Always on.</div>
+    </div>
+    <div class="proof__item">
+      <div class="proof__label">Backing</div>
+      <div class="proof__value">1<em>:</em>1</div>
+      <div class="proof__sub">Fully backed by U.S. dollars and short-term Treasury instruments.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAIN ENGLISH ============ -->
+<section class="explain light" id="what">
+  <div class="explain__inner">
     <div class="section-head">
       <div>
-        <div class="section-eyebrow">Spotlight</div>
-        <h2 class="section-title">Hear it<br><em>directly from us.</em></h2>
+        <div class="section-eyebrow">Plain English</div>
+        <h2 class="section-title">A digital dollar.<br><em>Nothing more.</em></h2>
       </div>
       <p class="section-head__copy">
-        What we're building right now — a new global payment rail, a deep dive
-        with leadership, and an upcoming live Teach-In with the Corpay team.
+        Stablecoins get talked about in the same breath as crypto. They
+        shouldn't be. Here's what they actually are, and why they belong
+        in a corporate payments stack.
       </p>
     </div>
 
-    <div class="spot-grid">
-
-      <!-- TILE 1: STABLECOIN -->
-      <div class="spot-tile spot-tile--stablecoin">
-        <div class="spot-tile__media">
-          <div class="spot-tile__mark">
-            <span class="spot-tile__mark-dollar">$</span>
-            <div class="spot-tile__mark-rings">
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-        <div class="spot-tile__body">
-          <div class="spot-tile__tag">New Product · Stablecoin</div>
-          <h3 class="spot-tile__title">Move money faster.<br><em>With confidence.</em></h3>
-          <p class="spot-tile__desc">
-            Corpay now offers stablecoin payments — a practical evolution in
-            payments infrastructure for real business use, built on USDC and
-            grounded in the GENIUS Act framework.
-          </p>
-          <ul class="spot-tile__features">
-            <li>Near-instant cross-border settlement</li>
-            <li>24/7 global availability</li>
-            <li>Backed 1:1 by U.S. Treasury reserves</li>
-          </ul>
-          <a class="spot-tile__cta">Learn more <span>→</span></a>
-        </div>
+    <div class="explain__body">
+      <div class="explain__lead">
+        A stablecoin is a digital representation of U.S. currency, tied
+        <em>1:1</em> to the value of one dollar — backed by real
+        dollar-denominated assets and engineered to avoid the price swings
+        that define volatile cryptocurrencies.
       </div>
-
-      <!-- TILE 2: VIDEO -->
-      <div class="spot-tile spot-tile--video">
-        <div class="spot-tile__media">
-          <button class="spot-tile__play" aria-label="Play video">
-            <svg viewBox="0 0 80 80" width="80" height="80">
-              <circle cx="40" cy="40" r="38" fill="none" stroke="#f5ede0" stroke-width="1"/>
-              <path d="M32 26 L32 54 L56 40 Z" fill="#f5ede0"/>
-            </svg>
-          </button>
-          <div class="spot-tile__duration">04:32</div>
-        </div>
-        <div class="spot-tile__body">
-          <div class="spot-tile__tag">Investor Video</div>
-          <h3 class="spot-tile__title">Inside the Corpay <em>growth engine.</em></h3>
-          <p class="spot-tile__desc">
-            CEO Ron Clarke and CFO Tom Panther on the 2026 setup — corporate
-            payments rotation, the Alpha integration, and what's driving 22%
-            adjusted EPS growth.
-          </p>
-          <a class="spot-tile__cta">Watch now <span>→</span></a>
-        </div>
+      <div class="explain__detail">
+        <p>
+          For Corpay customers, stablecoin represents <strong>fast, certain
+          settlement, 24/7 availability, and a global payment rail</strong>
+          that complements — rather than replaces — traditional wires, ACH,
+          and card rails.
+        </p>
+        <p>
+          Most business stablecoin activity today centers around
+          <strong>USDC</strong>, a fully backed digital dollar widely adopted
+          by financial services platforms and institutional users worldwide.
+        </p>
       </div>
-
-      <!-- TILE 3: TEACH-IN -->
-      <div class="spot-tile spot-tile--event">
-        <div class="spot-tile__media">
-          <div class="spot-tile__date-block">
-            <div class="spot-tile__date-month">May</div>
-            <div class="spot-tile__date-day">14</div>
-            <div class="spot-tile__date-year">2026</div>
-          </div>
-        </div>
-        <div class="spot-tile__body">
-          <div class="spot-tile__tag">Live Event</div>
-          <div class="spot-tile__series">The Corpay Teach-In Series</div>
-          <h3 class="spot-tile__title">Corporate Payments,<br><em>unpacked.</em></h3>
-          <p class="spot-tile__desc">
-            A 60-minute deep dive with the leaders building Corpay's
-            fastest-growing segment.
-          </p>
-          <div class="spot-tile__details">
-            <div class="spot-tile__detail">
-              <span class="spot-tile__detail-label">Time</span>
-              <span class="spot-tile__detail-value">11:00 AM ET</span>
-            </div>
-            <div class="spot-tile__detail">
-              <span class="spot-tile__detail-label">Format</span>
-              <span class="spot-tile__detail-value">Live + Q&amp;A</span>
-            </div>
-          </div>
-          <a class="spot-tile__cta">Reserve your seat <span>→</span></a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============ LATEST NEWS — light, editorial list ============ -->
-<section class="latest light">
-  <div class="latest__inner">
+<!-- ============ WHY IT MATTERS ============ -->
+<section class="why light" id="why">
+  <div class="why__inner">
     <div class="section-head">
       <div>
-        <div class="section-eyebrow">Latest</div>
-        <h2 class="section-title">A strong<br><em>finish</em> to 2025.</h2>
+        <div class="section-eyebrow">Why it matters</div>
+        <h2 class="section-title">Built for the<br>way business <em>actually moves.</em></h2>
       </div>
       <p class="section-head__copy">
-        Q4 closed with revenue, organic revenue, and adjusted EPS all ahead of
-        expectations. We completed the second-largest acquisition in company
-        history and secured a strategic Mastercard investment that values our
-        cross-border business at $13 billion.
+        Four reasons stablecoin payments belong inside a modern treasury
+        operation — and why we're integrating them now.
       </p>
     </div>
 
-    <div class="latest__list">
-      <div class="news-row news-row--feature">
-        <div class="news-row__date">Feb 4, 2026</div>
-        <div class="news-row__main">
-          <div class="news-row__tag">Featured · Q4 Earnings</div>
-          <div class="news-row__title">Corpay reports fourth quarter and full year 2025 financial results</div>
+    <div class="why__grid">
+      <div class="why-card">
+        <div class="why-card__num">01</div>
+        <div class="why-card__body">
+          <h3 class="why-card__title">Faster across borders</h3>
+          <p class="why-card__desc">
+            Traditional cross-border payments can take days because they rely
+            on multiple intermediaries and banking cutoffs. Stablecoins settle
+            near instantly, reducing float and uncertainty.
+          </p>
         </div>
-        <div class="news-row__arrow">→</div>
       </div>
 
-      <div class="news-row">
-        <div class="news-row__date">Dec 8, 2025</div>
-        <div class="news-row__main">
-          <div class="news-row__tag">Press Release</div>
-          <div class="news-row__title">Mastercard completes $300M investment in Corpay Cross-Border at $13B valuation</div>
+      <div class="why-card">
+        <div class="why-card__num">02</div>
+        <div class="why-card__body">
+          <h3 class="why-card__title">24/7 global payments</h3>
+          <p class="why-card__desc">
+            No banking hours. No delayed corridors. Stablecoin works around
+            the clock — including weekends, holidays, and across time zones
+            where correspondent banking creates dead air.
+          </p>
         </div>
-        <div class="news-row__arrow">→</div>
       </div>
 
-      <div class="news-row">
-        <div class="news-row__date">Nov 5, 2025</div>
-        <div class="news-row__main">
-          <div class="news-row__tag">Acquisition</div>
-          <div class="news-row__title">Acquisition of Alpha Group International completed</div>
+      <div class="why-card">
+        <div class="why-card__num">03</div>
+        <div class="why-card__body">
+          <h3 class="why-card__title">Predictability without volatility</h3>
+          <p class="why-card__desc">
+            USDC and similar stablecoins are built to track the dollar, with
+            reserves designed to ensure stability and transparency — making
+            them suitable for routine business transactions.
+          </p>
         </div>
-        <div class="news-row__arrow">→</div>
       </div>
 
-      <div class="news-row">
-        <div class="news-row__date">Oct 15, 2025</div>
-        <div class="news-row__main">
-          <div class="news-row__tag">Strategic Investment</div>
-          <div class="news-row__title">Corpay acquires 34% of AvidXchange with TPG, with option to buy remainder</div>
+      <div class="why-card">
+        <div class="why-card__num">04</div>
+        <div class="why-card__body">
+          <h3 class="why-card__title">Operational control</h3>
+          <p class="why-card__desc">
+            Because Corpay integrates stablecoin into your existing workflows,
+            you manage every payment type from one platform — with familiar
+            controls, visibility, and support.
+          </p>
         </div>
-        <div class="news-row__arrow">→</div>
       </div>
     </div>
-
-    <a class="latest__viewall">View all press releases →</a>
   </div>
 </section>
 
-<!-- ============ PERFORMANCE — DARK ============ -->
-<section class="perf dark">
+<!-- ============ TRUST / GENIUS ACT ============ -->
+<section class="trust dark" id="trust">
   <div class="gradient-band gradient-band--dim"></div>
   <div class="topo"></div>
 
-  <div class="perf__inner">
+  <div class="trust__inner">
     <div class="section-head">
       <div>
-        <div class="section-eyebrow">Performance</div>
-        <h2 class="section-title">Compounding<br><em>through cycles.</em></h2>
+        <div class="section-eyebrow">Regulatory framework</div>
+        <h2 class="section-title">The first federal<br>law for <em>payment stablecoins.</em></h2>
       </div>
       <p class="section-head__copy">
-        Five years of consistent revenue growth, expanding margins, and
-        disciplined capital allocation across vehicle, corporate, and
-        cross-border payments segments.
+        In July 2025, the U.S. enacted the GENIUS Act — the first federal
+        framework for payment stablecoins. It puts USDC and similar
+        instruments on a clear legal path for commercial use.
       </p>
     </div>
 
-    <div class="perf__grid">
-      <div class="perf__chart-wrap">
-        <svg class="perf__chart" viewBox="0 0 500 380" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stop-color="#e8b96b"/>
-              <stop offset="100%" stop-color="#c41e5a"/>
-            </linearGradient>
-            <linearGradient id="barGradDim" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stop-color="#e8b96b" stop-opacity="0.3"/>
-              <stop offset="100%" stop-color="#c41e5a" stop-opacity="0.1"/>
-            </linearGradient>
-          </defs>
-
-          <line x1="50" y1="40" x2="490" y2="40" stroke="rgba(245,237,224,0.06)"/>
-          <line x1="50" y1="120" x2="490" y2="120" stroke="rgba(245,237,224,0.06)"/>
-          <line x1="50" y1="200" x2="490" y2="200" stroke="rgba(245,237,224,0.06)"/>
-          <line x1="50" y1="280" x2="490" y2="280" stroke="rgba(245,237,224,0.06)"/>
-
-          <text x="40" y="45" fill="rgba(245,237,224,0.4)" font-family="GT America" font-size="9" text-anchor="end">$5.5B</text>
-          <text x="40" y="125" fill="rgba(245,237,224,0.4)" font-family="GT America" font-size="9" text-anchor="end">$4.5B</text>
-          <text x="40" y="205" fill="rgba(245,237,224,0.4)" font-family="GT America" font-size="9" text-anchor="end">$3.5B</text>
-          <text x="40" y="285" fill="rgba(245,237,224,0.4)" font-family="GT America" font-size="9" text-anchor="end">$2.5B</text>
-
-          <g>
-            <rect x="80"  y="254" width="50" height="66"  rx="4" fill="url(#barGradDim)"/>
-            <rect x="150" y="206" width="50" height="114" rx="4" fill="url(#barGradDim)"/>
-            <rect x="220" y="180" width="50" height="140" rx="4" fill="url(#barGradDim)"/>
-            <rect x="290" y="163" width="50" height="157" rx="4" fill="url(#barGradDim)"/>
-            <rect x="360" y="119" width="50" height="201" rx="4" fill="url(#barGrad)"/>
-            <rect x="430" y="60"  width="50" height="260" rx="4" fill="url(#barGrad)" opacity="0.85"/>
-          </g>
-
-          <rect x="430" y="60" width="50" height="260" rx="4" fill="none" stroke="#e8b96b" stroke-width="1" stroke-dasharray="3,3"/>
-
-          <text x="105" y="345" fill="rgba(245,237,224,0.6)" font-family="GT America" font-size="10" text-anchor="middle">2021</text>
-          <text x="175" y="345" fill="rgba(245,237,224,0.6)" font-family="GT America" font-size="10" text-anchor="middle">2022</text>
-          <text x="245" y="345" fill="rgba(245,237,224,0.6)" font-family="GT America" font-size="10" text-anchor="middle">2023</text>
-          <text x="315" y="345" fill="rgba(245,237,224,0.6)" font-family="GT America" font-size="10" text-anchor="middle">2024</text>
-          <text x="385" y="345" fill="#f5ede0" font-family="GT America" font-size="10" text-anchor="middle">2025</text>
-          <text x="455" y="345" fill="#e8b96b" font-family="GT America" font-size="10" text-anchor="middle">2026E</text>
-
-          <text x="105" y="248" fill="rgba(245,237,224,0.5)" font-family="GT America" font-size="11" text-anchor="middle">$2.83B</text>
-          <text x="175" y="200" fill="rgba(245,237,224,0.5)" font-family="GT America" font-size="11" text-anchor="middle">$3.43B</text>
-          <text x="245" y="174" fill="rgba(245,237,224,0.5)" font-family="GT America" font-size="11" text-anchor="middle">$3.76B</text>
-          <text x="315" y="157" fill="rgba(245,237,224,0.7)" font-family="GT America" font-size="11" text-anchor="middle">$3.97B</text>
-          <text x="385" y="113" fill="#f5ede0" font-family="GT America" font-size="13" font-weight="500" text-anchor="middle">$4.53B</text>
-          <text x="455" y="54"  fill="#e8b96b" font-family="GT America" font-size="13" font-weight="500" text-anchor="middle">$5.27B</text>
-
-          <text x="50" y="20" fill="rgba(245,237,224,0.5)" font-family="GT America" font-size="9" letter-spacing="1">REVENUE / FISCAL YEAR · SOURCE: SEC FILINGS</text>
-        </svg>
+    <div class="trust__grid">
+      <div class="trust__seal">
+        <div class="trust__seal-eyebrow">Public Law</div>
+        <div class="trust__seal-title">The <em>GENIUS</em><br>Act</div>
+        <div class="trust__seal-divider"></div>
+        <div class="trust__seal-subtitle">Federal Stablecoin Framework</div>
+        <div class="trust__seal-date">Enacted July 2025</div>
       </div>
 
-      <div class="perf__numbers">
-        <div class="perf__num">
-          <div class="perf__num-label">FY26 Revenue Guidance</div>
-          <div class="perf__num-value">$5.27<em>B</em></div>
-          <div class="perf__num-desc">Up 16% year-over-year, driven by acquisitions, corporate payments rotation, and macro tailwinds.</div>
-        </div>
-        <div class="perf__num">
-          <div class="perf__num-label">FY26 Adj. EPS Guidance</div>
-          <div class="perf__num-value">$26.00</div>
-          <div class="perf__num-desc">Up 22% YoY. Alpha and Avid combined contribute approximately $1 of accretion.</div>
-        </div>
-        <div class="perf__num">
-          <div class="perf__num-label">Cash EBITDA · Q4</div>
-          <div class="perf__num-value">$700M<em>+</em></div>
-          <div class="perf__num-desc">Quarterly cash EBITDA exceeded $700 million for the first time in company history.</div>
-        </div>
-      </div>
+      <ol class="trust__list">
+        <li>
+          <span class="trust__list-num">01</span>
+          <span class="trust__list-text">
+            Requires stablecoins to be <strong>fully backed</strong> by
+            high-quality liquid assets such as U.S. dollars or short-term
+            U.S. Treasury instruments.
+          </span>
+        </li>
+        <li>
+          <span class="trust__list-num">02</span>
+          <span class="trust__list-text">
+            Establishes <strong>consumer protections and transparency
+            requirements</strong> for issuers and users.
+          </span>
+        </li>
+        <li>
+          <span class="trust__list-num">03</span>
+          <span class="trust__list-text">
+            Provides <strong>regulatory clarity</strong> for stablecoin
+            issuers, treasury teams, and compliance officers.
+          </span>
+        </li>
+        <li>
+          <span class="trust__list-num">04</span>
+          <span class="trust__list-text">
+            Reinforces the role of the <strong>U.S. dollar in digital
+            payment systems</strong> globally.
+          </span>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- ============ ABOUT — light ============ -->
-<section class="about light">
-  <div class="about__inner">
-    <div>
-      <div class="about__label">About Corpay</div>
-      <h2 class="about__heading">A global S&amp;P 500<br><em>payments leader.</em></h2>
-    </div>
-    <div>
-      <p class="about__body">
-        <strong>Corpay (NYSE: CPAY)</strong> is a global S&amp;P 500 corporate
-        payments company simplifying how businesses pay expenses across
-        vehicle, corporate, and cross-border payments — delivering durable
-        double-digit growth at scale.
-      </p>
-      <div class="about__meta">
-        <div class="about__meta-item">
-          <span class="about__meta-label">Listed</span>
-          <span class="about__meta-value">NYSE : CPAY</span>
-        </div>
-        <div class="about__meta-item">
-          <span class="about__meta-label">Index</span>
-          <span class="about__meta-value">S&amp;P 500</span>
-        </div>
-        <div class="about__meta-item">
-          <span class="about__meta-label">Headquarters</span>
-          <span class="about__meta-value">Atlanta, Georgia</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RESOURCES — light, bigger tiles ============ -->
-<section class="resources light">
-  <div class="resources__inner">
+<!-- ============ WHERE IT DELIVERS VALUE ============ -->
+<section class="value light">
+  <div class="value__inner">
     <div class="section-head">
       <div>
-        <div class="section-eyebrow">Resources</div>
-        <h2 class="section-title">Everything you<br>need, <em>in one place.</em></h2>
+        <div class="section-eyebrow">Where it delivers</div>
+        <h2 class="section-title">The strongest case<br>is <em>cross-border.</em></h2>
       </div>
       <p class="section-head__copy">
-        Curated for analysts, shareholders, and prospective investors.
-        Quarterly results, SEC filings, governance documents, and the
-        historical archive — all in one place.
+        Stablecoin enhances flexibility — it doesn't abolish what already
+        works. Here's where it earns its place inside a modern treasury stack,
+        and where traditional rails still make sense.
       </p>
     </div>
 
-    <div class="resources__grid">
-      <div class="resource">
-        <svg class="resource__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-          <rect x="3" y="4" width="18" height="16" rx="1"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-          <line x1="9" y1="4" x2="9" y2="20"/>
-        </svg>
-        <div class="resource__main">
-          <div class="resource__title">Financial Reports</div>
-          <p class="resource__desc">10-K, 10-Q, earnings releases, and historical archives back to 2010.</p>
-        </div>
-        <div class="resource__arrow">→</div>
+    <div class="value__grid">
+      <div class="value-col value-col--featured">
+        <div class="value-col__tag">Primary use case</div>
+        <h3 class="value-col__title">Cross-border<br><em>payments.</em></h3>
+        <p class="value-col__desc">
+          This is the strongest business case. Stablecoin reduces settlement
+          time, improves cash flow visibility, and streamlines payables
+          across geographies — without the frictions of correspondent banking.
+        </p>
+        <ul class="value-col__list">
+          <li>Reduce settlement time from days to minutes</li>
+          <li>Improve cash flow visibility across geographies</li>
+          <li>Streamline payables to international suppliers</li>
+          <li>Eliminate correspondent banking friction</li>
+        </ul>
       </div>
 
-      <div class="resource">
-        <svg class="resource__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-          <rect x="3" y="5" width="18" height="16" rx="1"/>
-          <line x1="3" y1="9" x2="21" y2="9"/>
-          <line x1="8" y1="3" x2="8" y2="7"/>
-          <line x1="16" y1="3" x2="16" y2="7"/>
-        </svg>
-        <div class="resource__main">
-          <div class="resource__title">Events &amp; Webcasts</div>
-          <p class="resource__desc">Earnings calls, investor conferences, analyst days. Live and on-demand.</p>
-        </div>
-        <div class="resource__arrow">→</div>
-      </div>
-
-      <div class="resource">
-        <svg class="resource__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-          <path d="M3 17l6-6 4 4 8-8"/>
-          <polyline points="14 7 21 7 21 14"/>
-        </svg>
-        <div class="resource__main">
-          <div class="resource__title">Stock Information</div>
-          <p class="resource__desc">Real-time quotes, historical lookup, dividend history, analyst coverage.</p>
-        </div>
-        <div class="resource__arrow">→</div>
-      </div>
-
-      <div class="resource">
-        <svg class="resource__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-        <div class="resource__main">
-          <div class="resource__title">Governance &amp; ESG</div>
-          <p class="resource__desc">Board, committee charters, code of conduct, and sustainability reports.</p>
-        </div>
-        <div class="resource__arrow">→</div>
+      <div class="value-col">
+        <div class="value-col__tag">Supporting role</div>
+        <h3 class="value-col__title">Domestic<br><em>use cases.</em></h3>
+        <p class="value-col__desc">
+          Domestic rails like ACH and wires already work well. Stablecoin
+          plays a supporting role when conventional rails fall short — and
+          stays out of the way when they don't.
+        </p>
+        <ul class="value-col__list">
+          <li>Payments that must settle outside banking hours</li>
+          <li>Situations where timing certainty is mission-critical</li>
+          <li>Treasury teams seeking modern settlement options</li>
+          <li>Bridging gaps between traditional rails</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ QUOTE — DARK ============ -->
-<section class="quote dark">
-  <div class="gradient-band"></div>
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how light" id="use">
+  <div class="how__inner">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title">Designed to<br>work <em>alongside</em> what you have.</h2>
+      </div>
+      <p class="section-head__copy">
+        Corpay handles the complexity. You never need to manage wallets,
+        private keys, or blockchain connectivity yourself.
+      </p>
+    </div>
+
+    <div class="how__list">
+      <div class="how-step">
+        <div class="how-step__num">01</div>
+        <div class="how-step__title">Initiate stablecoin payments where speed gives you an advantage</div>
+        <div class="how-step__desc">
+          Choose stablecoin for international transfers, after-hours
+          settlement, or any payment where timing matters more than the
+          familiarity of a wire.
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">02</div>
+        <div class="how-step__title">Continue using traditional rails where they make sense</div>
+        <div class="how-step__desc">
+          ACH, wires, and card rails stay exactly where they are. Stablecoin
+          is an addition to your toolkit, not a replacement for what already
+          works.
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">03</div>
+        <div class="how-step__title">Monitor and control everything from one Corpay dashboard</div>
+        <div class="how-step__desc">
+          Every payment type — stablecoin, wire, ACH, card — flows through
+          the same interface, with the same controls, the same visibility,
+          and the same support team.
+        </div>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step__num">04</div>
+        <div class="how-step__title">Backed by Corpay risk controls, compliance, and support</div>
+        <div class="how-step__desc">
+          You get the speed of a new payment rail with the operational
+          confidence of a global S&amp;P 500 corporate payments company.
+          No wallets to manage. No keys to secure. No blockchain to maintain.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT THIS ISN'T ============ -->
+<section class="isnt dark">
+  <div class="gradient-band gradient-band--dim"></div>
   <div class="topo"></div>
 
-  <div class="quote__inner">
-    <div class="quote__mark">"</div>
-    <p class="quote__text">
-      We had a strong finish to 2025. Our exit rate and accretive deals create
-      a <em>strong set-up for 2026</em>, as we accelerate our rotation to more
-      corporate payments.
+  <div class="isnt__inner">
+    <div class="isnt__eyebrow">A note on what this isn't</div>
+    <h2 class="isnt__title">
+      Launching stablecoin payments<br>
+      <em>isn't about experimenting</em> with crypto.
+    </h2>
+    <p class="isnt__body">
+      It's about reimagining payment rails so that businesses — especially
+      those with global needs — get <strong>faster settlement, greater
+      predictability, transparent activity, and a trusted overlay</strong>
+      through Corpay's compliance and controls. Innovation without compromise.
     </p>
-    <div class="quote__author">
-      <strong>Ron Clarke</strong>
-      Chairman &amp; Chief Executive Officer
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta light">
+  <div class="cta__inner">
+    <div class="cta__eyebrow">Get Started</div>
+    <h2 class="cta__title">Ready to move money<br><em>at the speed of business?</em></h2>
+    <p class="cta__desc">
+      Talk to a Corpay specialist about adding stablecoin payments to your
+      treasury operations — and see how it fits alongside the rails you
+      already trust.
+    </p>
+    <div class="cta__buttons">
+      <button class="cta__btn cta__btn--primary">Talk to a specialist <span>→</span></button>
+      <button class="cta__btn cta__btn--secondary">Read the press release</button>
     </div>
   </div>
 </section>
@@ -1817,43 +1457,35 @@
   <div class="footer__inner">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand">corpay<em>/ir</em></div>
+        <div class="footer__brand">corpay<em>/stablecoin</em></div>
         <p class="footer__tag">
-          The corporate payments company. Simplifying how businesses pay
-          expenses across vehicle, corporate, and cross-border payments worldwide.
+          A new global payment rail from Corpay (NYSE: CPAY) — built on USDC,
+          grounded in the GENIUS Act framework, and integrated into the
+          payments platform you already use.
         </p>
       </div>
       <div class="footer__col">
-        <h4>Investors</h4>
+        <h4>Stablecoin</h4>
         <ul>
-          <li><a>Overview</a></li>
-          <li><a>Financials</a></li>
-          <li><a>Stock</a></li>
-          <li><a>Events</a></li>
+          <li><a>What it is</a></li>
+          <li><a>Why it matters</a></li>
+          <li><a>GENIUS Act</a></li>
+          <li><a>How it works</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Company</h4>
+        <h4>Corpay</h4>
         <ul>
-          <li><a>About</a></li>
-          <li><a>Leadership</a></li>
+          <li><a>Cross-Border</a></li>
+          <li><a>Corporate Payments</a></li>
+          <li><a>Investor Relations</a></li>
           <li><a>Newsroom</a></li>
-          <li><a>Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a>SEC Filings</a></li>
-          <li><a>Annual Report</a></li>
-          <li><a>FAQs</a></li>
-          <li><a>Email Alerts</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Connect</h4>
         <ul>
-          <li><a>Contact IR</a></li>
+          <li><a>Talk to us</a></li>
           <li><a>LinkedIn</a></li>
           <li><a>X / Twitter</a></li>
         </ul>
